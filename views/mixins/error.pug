@@ -1,0 +1,6 @@
+mixin error-mixin
+    case error
+        when "validation"
+            p.error Fehlerhafte Eingabe
+        when "authentication"
+            p.error Ungültiger Login

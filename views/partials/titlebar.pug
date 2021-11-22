@@ -1,0 +1,19 @@
+div.titlebar
+    h1
+        a(href="/")
+            span Smart
+            span Soft
+
+    div
+        if user
+            if user.type === EUserType.Employee
+                span.username= user.firstName + " " + user.lastName + " (Mitarbeiter)"
+            else if user.type === EUserType.Customer
+                span.username= user.username + " (Mitarbeiter)"
+            a.link-button(href="/auth/logout")
+                i(icon-name="log-out")
+                span Abmelden
+        else
+            a.link-button(href="/auth/login/customer")
+                i(icon-name="log-in")
+                span Anmeldung

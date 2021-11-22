@@ -1,0 +1,26 @@
+mixin message-mixin(message)
+    div.message
+        div.message-header
+            h2
+                if (user.type === EUserType.Customer && message.from === EMessageFrom.Employee) || (user.type === EUserType.Employee && message.from === EMessageFrom.Customer)
+                    i.blue(icon-name="chevrons-right")
+                else
+                    i.yellow(icon-name="chevrons-left")
+
+                if message.subject
+                    span= message.subject
+                else
+                    span= "Nachricht"
+
+            span.date= message.createdAt.toLocaleString()
+
+            p
+                b Kunde:&nbsp;
+                span #{message.customer.username} (#{message.customer.customerNumber})
+                br
+                b Mitarbeiter:&nbsp;
+                span #{message.employee.firstName} #{message.employee.lastName}
+
+
+
+        p.message-body!= message.text.replace(/\r?\n/g, "<br/>")

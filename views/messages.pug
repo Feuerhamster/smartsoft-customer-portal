@@ -1,0 +1,13 @@
+extends _layout
+
+include mixins/message
+
+block page
+    h1 Nachrichten
+
+    a.block.button(href="/messages/send")
+        i(icon-name="mail")
+        span Nachricht schrieben
+
+    each message in messages
+        +message-mixin(message)

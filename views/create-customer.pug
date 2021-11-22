@@ -1,0 +1,27 @@
+extends _layout
+
+include mixins/error
+
+block page
+    h1 Kunde anlegen
+
+    +error-mixin
+
+    form(method="post")
+        input(name="username" placeholder="Benutzername" minlength="3" maxlength="100" required)
+        input(name="customerNumber" type="text" placeholder="Kundennummer" minlength="10" maxlength="10" required)
+        select(name="pricingModel" required)
+            option(value="" disabled selected) Preismodell wählen
+            option(value="Basic") Basis
+            option(value="Medium") Medium
+            option(value="Premium") Premium
+
+        select(name="contact" required)
+            option(value="" disabled selected) Kontakt wählen
+            each employee in employees
+                option(value=employee.id) #{employee.firstName} #{employee.lastName}
+
+        button Anlegen
+        a.button.yellow(href="/employees")
+            i(icon-name="arrow-left-circle")
+            span Zurück

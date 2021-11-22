@@ -1,0 +1,31 @@
+extends _layout
+
+block page
+    h1 Kundenverwaltung
+
+    a.block.button(href="/customers/add")
+        i(icon-name="file-plus")
+        span Kunde anlegen
+
+    table
+        thead
+            tr
+                th Benutzername
+                th Kundennummer
+                th Preismodell
+                th Kontakt
+                th Erstellt am
+                th Aktionen
+        tbody
+            each customer in customers
+                tr
+                    td= customer.username
+                    td= customer.customerNumber
+                    td= customer.pricingModel
+                    td= customer.contact.firstName + " " + customer.contact.lastName
+                    td= customer.createdAt.toLocaleDateString()
+                    td.actions
+                        a.button.yellow.small(href="/customers/" + customer.id + "/edit")
+                            i(icon-name="pencil")
+                        a.button.red.small(href="/customers/" + customer.id + "/delete")
+                            i(icon-name="trash")

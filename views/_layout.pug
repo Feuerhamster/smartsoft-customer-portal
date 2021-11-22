@@ -1,0 +1,18 @@
+doctype html
+
+html(lang="en")
+    head
+        title SmartSoft Kundenportal
+        meta(charset="utf-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1")
+        meta(name="description", content="SmartSoft Kundenportal")
+        script(src="https://unpkg.com/lucide@latest")
+        link(rel="stylesheet", href="/style.css")
+
+    body
+        include partials/titlebar.pug
+        div.page
+            block page
+
+script
+    | lucide.createIcons();

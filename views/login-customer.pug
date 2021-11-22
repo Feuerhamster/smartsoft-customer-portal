@@ -1,0 +1,19 @@
+extends _layout
+
+include mixins/error
+
+block page
+    h1 Anmeldung für Kunden
+
+    +error-mixin
+
+    form(method="post")
+        input(name="username" type="text" placeholder="Benutzername" maxlength="255" required)
+        input(name="customerNumber" type="text" placeholder="Kundennummer" minlength="10" maxlength="10" required)
+        button
+            i(icon-name="log-in")
+            span Login
+
+        a.button.yellow(href="/auth/login/employee")
+            i(icon-name="key")
+            span Mitarbeiter Login

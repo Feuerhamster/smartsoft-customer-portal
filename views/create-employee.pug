@@ -1,0 +1,20 @@
+extends _layout
+
+include mixins/error
+
+block page
+    h1 Mitarbeiter anlegen
+
+    +error-mixin
+
+    form(method="post")
+        input(name="firstName" type="text" placeholder="Vorname" required)
+        input(name="lastName" type="text" placeholder="Nachname" required)
+        input(name="email" type="text" placeholder="E-Mail" required)
+        input(name="password" type="password" placeholder="Passwort" required minlength="5")
+
+        button Anlegen
+
+        a.button.yellow(href="/employees")
+            i(icon-name="arrow-left-circle")
+            span Zurück

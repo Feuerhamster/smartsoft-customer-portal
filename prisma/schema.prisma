@@ -1,0 +1,60 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+enum EPricingModel {
+  Basic
+  Medium
+  Premium
+}
+
+enum EMessageFrom {
+  Employee
+  Customer
+}
+
+model Employee {
+  id        String     @id @default(cuid())
+  firstName String
+  lastName  String
+  email     String
+  password  String     @db.Text
+  salt      String
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  customers  Customer[]
+  messages   Message[]
+}
+
+model Customer {
+  id                String       @id @default(cuid())
+  username          String
+  pricingModel      EPricingModel
+  customerNumber    String
+  contact           Employee     @relation(fields: [employeeId], references: [id])
+  createdAt         DateTime     @default(now())
+  updatedAt         DateTime     @updatedAt
+  employeeId        String
+  messages           Message[]
+}
+
+model Message {
+  id         String         @id @default(cuid())
+  subject    String
+  text       String         @db.Text
+  from       EMessageFrom
+  createdAt  DateTime       @default(now())
+  updatedAt  DateTime       @updatedAt
+  customer   Customer       @relation(fields: [customerId], references: [id])
+  employee   Employee       @relation(fields: [employeeId], references: [id])
+  customerId String
+  employeeId String
+}

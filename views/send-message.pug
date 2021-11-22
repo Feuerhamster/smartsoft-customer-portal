@@ -1,0 +1,29 @@
+extends _layout
+
+include mixins/error
+
+block page
+    h1 Nachricht schreiben
+
+    +error-mixin
+
+    form(method="post")
+
+        if user.type == EUserType.Customer
+            p
+                b Dein Kontakt:&nbsp;
+                span #{contact.firstName} #{contact.lastName}
+        else
+            select(name="to" required)
+                option(value="" disabled selected) Empfänger wählen
+                each customer in customers
+                    option(value=customer.id) #{customer.username} (#{customer.customerNumber})
+
+        input(name="subject" type="text" placeholder="Betreff")
+        textarea(name="text" placeholder="Deine Nachricht" rows="5" required)
+
+        button Senden
+
+        a.button.yellow(href="/employees")
+            i(icon-name="arrow-left-circle")
+            span Zurück

@@ -1,0 +1,27 @@
+extends _layout
+
+block page
+    h1 Mitarbeiterverwaltung
+
+    a.block.button(href="/employees/add")
+        i(icon-name="user-plus")
+        span Mitarbeiter anlegen
+
+    table
+        thead
+            tr
+                th Name
+                th E-Mail
+                th Erstellt am
+                th Actions
+        tbody
+            each employee in employees
+                tr
+                    td= employee.firstName + " " + employee.lastName
+                    td= employee.email
+                    td= employee.createdAt.toLocaleDateString()
+                    td.actions
+                        a.button.yellow.small(href="/employees/" + employee.id + "/edit")
+                            i(icon-name="pencil")
+                        a.button.red.small(href="/employees/" + employee.id + "/delete")
+                            i(icon-name="trash")

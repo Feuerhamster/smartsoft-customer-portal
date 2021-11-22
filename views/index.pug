@@ -1,0 +1,18 @@
+extends _layout
+
+block page
+    h1 SmartSoft Online-Portal
+
+    div.row.gap
+        if user.type === EUserType.Employee
+            a.link-box(href="/customers")
+                i(icon-name="file-text")
+                span Kunden
+
+            a.link-box(href="/employees")
+                i(icon-name="users")
+                span Mitarbeiter
+
+        a.link-box(href="/messages")
+            i(icon-name="mail")
+            span Nachrichten
