@@ -19,7 +19,7 @@
 
 ## ⚙ Run the project
 **Requirements:**
-- [Node.js]
+- [Node.js LTS](https://nodejs.org/en/)
 - A MySQL Database
 
 1. Download the project files and extract them
