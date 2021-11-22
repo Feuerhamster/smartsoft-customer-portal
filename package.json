@@ -24,6 +24,7 @@
   },
   "scripts": {
     "start": "tsc && node dist/main.js",
+    "prod": "npx prisma migrate deploy && npx prisma generate && node dist/main.js",
     "build": "tsc"
   },
   "author": "l.emme@hamsterlabs.de",
