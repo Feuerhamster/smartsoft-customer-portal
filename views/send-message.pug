@@ -9,7 +9,7 @@ block page
 
     form(method="post")
 
-        if user.type == EUserType.Customer
+        if user.type === EUserType.Customer
             p
                 b Dein Kontakt:&nbsp;
                 span #{contact.firstName} #{contact.lastName}

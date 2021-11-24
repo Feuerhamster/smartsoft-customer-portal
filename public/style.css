@@ -148,6 +148,31 @@ div.gap {
     margin: 0 10px;
 }
 
+/**
+ * Navbar
+ */
+
+div.navbar {
+    padding: 8px 16px;
+    background: rgba(0, 0, 0, 0.07);
+    display: flex;
+    justify-content: center;
+}
+
+div.navbar > nav {
+    display: flex;
+    gap: 20px;
+}
+
+div.navbar > nav > a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+div.navbar > nav > a.active {
+    border-bottom: 2px solid var(--color-primary);
+}
 
 /**
  * Forms
@@ -279,6 +304,7 @@ table th {
 td.actions {
     display: flex;
     gap: 10px;
+    justify-content: center;
 }
 
 td.actions .lucide {

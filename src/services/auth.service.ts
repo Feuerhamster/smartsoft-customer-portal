@@ -6,7 +6,6 @@ import {LoginResponseCustomer, LoginResponseEmployee} from "../models/dto/login"
 import jwt from "jsonwebtoken";
 import {ConfigService} from "./config.service";
 import {EUserType, JWTClaimsCustomer, JWTClaimsEmployee} from "../models/auth";
-import {CustomerWithContact} from "../models/database";
 
 @Service()
 export default class AuthService {

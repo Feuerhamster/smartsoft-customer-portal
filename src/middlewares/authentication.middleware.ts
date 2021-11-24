@@ -14,18 +14,19 @@ export class AuthMiddleware {
     public injectUserData(req: Request, res: Response, next: any): void {
         let token: string = req.cookies.token;
 
-        if(!token) return next();
-
         let claims: JWTClaimsEmployee | JWTClaimsCustomer = null;
 
-        try {
-            claims = jwt.verify(token, this.config.jwtSecret);
-        } catch (e) {
-            return next();
-        }
+        // Verify the json web token and set user claims, if the token is present in the cookie header
+        if (token) {
+            try {
+                claims = jwt.verify(token, this.config.jwtSecret);
+            } catch (e) {}
 
-        req.userId = claims.id;
-        req.userType = claims.type;
+            if (claims) {
+                req.userId = claims.id;
+                req.userType = claims.type;
+            }
+        }
 
         let render = res.render;
 
@@ -33,6 +34,7 @@ export class AuthMiddleware {
         res.render = function (view: string, options: any = {}) {
             options.user = claims;
             options.EUserType = EUserType;
+            options.routePath = req.originalUrl;
             render.call(this, view, options);
         };
 

@@ -17,3 +17,32 @@ div.titlebar
             a.link-button(href="/auth/login/customer")
                 i(icon-name="log-in")
                 span Anmeldung
+
+div.navbar
+    nav
+        if user
+            a(href="/" class=routePath === "/" ? "active" : "")
+                i(icon-name="home")
+                span Startseite
+
+            a(href="/messages" class=routePath.startsWith("/messages") ? "active" : "")
+                i(icon-name="mail")
+                span Nachrichten
+
+            if user.type === EUserType.Employee
+                a(href="/customers" class=routePath.startsWith("/customers") ? "active" : "")
+                    i(icon-name="file-text")
+                    span Kundenverwaltung
+
+                a(href="/employees" class=routePath.startsWith("/employees") ? "active" : "")
+                    i(icon-name="users")
+                    span Mitarbeiterverwaltung
+
+        else
+            a(href="/auth/login/customer" class=routePath === "/auth/login/customer" ? "active" : "")
+                i(icon-name="user")
+                span Kunden-Login
+
+            a(href="/auth/login/employee" class=routePath === "/auth/login/employee" ? "active" : "")
+                i(icon-name="key")
+                span Mitarbeiter-Login

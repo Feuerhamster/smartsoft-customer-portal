@@ -25,7 +25,7 @@ block page
                     td= customer.contact.firstName + " " + customer.contact.lastName
                     td= customer.createdAt.toLocaleDateString()
                     td.actions
-                        a.button.yellow.small(href="/customers/" + customer.id + "/edit")
+                        //a.button.yellow.small(href="/customers/" + customer.id + "/edit")
                             i(icon-name="pencil")
                         a.button.red.small(href="/customers/" + customer.id + "/delete")
                             i(icon-name="trash")

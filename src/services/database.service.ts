@@ -153,10 +153,21 @@ export default class DatabaseService {
             include: {
                 employee: true,
                 customer: true
+            },
+            orderBy: {
+                createdAt: "desc"
             }
         });
     }
 
+    /**
+     * Add a new message
+     * @param subject Message subject
+     * @param text Text of the message
+     * @param employee Id of the employee
+     * @param customer Id of the customer
+     * @param from If the message is from the customer or an employee
+     */
     public async createMessage(
         subject: string,
         text: string,
