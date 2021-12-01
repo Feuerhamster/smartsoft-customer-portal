@@ -7,7 +7,7 @@ export class DTOAddCustomer {
     username: string;
 
     @IsNotEmpty()
-    @Length(10,10)
+    @Length(12,12)
     customerNumber: string;
 
     @IsNotEmpty()
