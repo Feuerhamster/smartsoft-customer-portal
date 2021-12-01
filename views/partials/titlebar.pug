@@ -9,7 +9,7 @@ div.titlebar
             if user.type === EUserType.Employee
                 span.username= user.firstName + " " + user.lastName + " (Mitarbeiter)"
             else if user.type === EUserType.Customer
-                span.username= user.username + " (Mitarbeiter)"
+                span.username= user.username + " (Kunde)"
             a.link-button(href="/auth/logout")
                 i(icon-name="log-out")
                 span Abmelden
