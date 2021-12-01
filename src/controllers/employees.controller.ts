@@ -3,7 +3,7 @@ import {Service} from "typedi";
 import {Request, Response} from "express";
 import {loginRequired} from "../middlewares/authentication.middleware";
 import {EmployeeService} from "../services/employee.service";
-import {Employee} from "@Prisma/client";
+import {Employee} from "@prisma/client";
 import {DTOAddEmployee} from "../models/dto/employee";
 import {EUserType} from "../models/auth";
 

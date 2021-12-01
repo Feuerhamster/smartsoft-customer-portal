@@ -1,6 +1,6 @@
 import {Service} from "typedi";
 import DatabaseService from "./database.service";
-import {Employee} from "@Prisma/client";
+import {Employee} from "@prisma/client";
 import {DTOAddEmployee} from "../models/dto/employee";
 import AuthService from "./auth.service";
 import crypto from "crypto";

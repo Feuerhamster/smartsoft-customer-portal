@@ -1,5 +1,5 @@
 import {IsEmail, IsNotEmpty, IsString, Length} from "class-validator";
-import {Employee} from "@Prisma/client";
+import {Employee} from "@prisma/client";
 import {Customer} from "@prisma/client";
 import {CustomerWithContact} from "../database";
 

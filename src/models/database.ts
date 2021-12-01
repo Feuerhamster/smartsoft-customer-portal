@@ -1,5 +1,5 @@
 import {EPricingModel, Employee, Customer} from "@prisma/client";
-import {EMessageFrom} from "@Prisma/client";
+import {EMessageFrom} from "@prisma/client";
 
 export type CustomerWithContact = {
     id: string

@@ -1,4 +1,4 @@
-import {EMessageFrom} from "@Prisma/client";
+import {EMessageFrom} from "@prisma/client";
 import {IsEnum, IsNotEmpty, IsOptional, IsString, Length} from "class-validator";
 
 export class DTOMessage {

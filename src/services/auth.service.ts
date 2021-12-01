@@ -1,6 +1,6 @@
 import {Service} from "typedi";
 import DatabaseService from "./database.service";
-import {Employee} from "@Prisma/client";
+import {Employee} from "@prisma/client";
 import * as crypto from "crypto";
 import {LoginResponseCustomer, LoginResponseEmployee} from "../models/dto/login";
 import jwt from "jsonwebtoken";

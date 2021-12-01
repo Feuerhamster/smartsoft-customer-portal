@@ -1,6 +1,6 @@
 import {Service} from "typedi";
 import DatabaseService from "./database.service";
-import {EMessageFrom, Message} from "@Prisma/client";
+import {EMessageFrom, Message} from "@prisma/client";
 import {DTOMessage} from "../models/dto/message";
 import {MessageWithCustomerAndEmployee} from "../models/database";
 

@@ -1,6 +1,6 @@
 import {Service} from "typedi";
 import { PrismaClient, Employee, Customer, EPricingModel } from "@prisma/client";
-import {EMessageFrom, Message} from "@Prisma/client";
+import {EMessageFrom, Message} from "@prisma/client";
 import {CustomerWithContact, EmployeeWithCustomers, MessageWithCustomerAndEmployee} from "../models/database";
 
 @Service()

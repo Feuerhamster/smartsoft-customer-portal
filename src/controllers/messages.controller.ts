@@ -3,7 +3,7 @@ import {ClassMiddleware, Controller, Get, Middleware, Post} from "@overnightjs/c
 import {MessageService} from "../services/message.service";
 import {Request, Response} from "express";
 import {loginRequired} from "../middlewares/authentication.middleware";
-import {EMessageFrom, Message} from "@Prisma/client";
+import {EMessageFrom, Message} from "@prisma/client";
 import {EUserType} from "../models/auth";
 import {validator} from "../middlewares/validation.middleware";
 import {DTOMessage} from "../models/dto/message";
