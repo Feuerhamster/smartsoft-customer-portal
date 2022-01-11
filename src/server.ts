@@ -10,6 +10,7 @@ import {EmployeeController} from "./controllers/employees.controller";
 import {EmployeeService} from "./services/employee.service";
 import {CustomerController} from "./controllers/customers.controller";
 import {MessagesController} from "./controllers/messages.controller";
+import {DesignController} from "./controllers/design.controller";
 
 export class SmartSoftCustomerPortalServer extends Server {
 
@@ -46,13 +47,15 @@ export class SmartSoftCustomerPortalServer extends Server {
         const employeeController = Container.get(EmployeeController);
         const customerController = Container.get(CustomerController);
         const messagesController = Container.get(MessagesController);
+        const designController = Container.get(DesignController);
 
         super.addControllers([
             indexController,
             authController,
             employeeController,
             customerController,
-            messagesController
+            messagesController,
+            designController
         ]);
     }
 

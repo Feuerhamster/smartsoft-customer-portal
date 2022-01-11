@@ -35,6 +35,7 @@ export class AuthMiddleware {
             options.user = claims;
             options.EUserType = EUserType;
             options.routePath = req.originalUrl;
+            options.designMode = req.cookies.design ?? "0";
             render.call(this, view, options);
         };
 
