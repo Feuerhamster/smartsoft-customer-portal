@@ -9,7 +9,7 @@ import {EUserType} from "../models/auth";
 
 @Service()
 @Controller("employees")
-@ClassMiddleware([loginRequired(EUserType.Employee)])
+@ClassMiddleware(loginRequired(EUserType.Employee))
 export class EmployeeController {
     constructor(private readonly employeeService: EmployeeService) {}
 

@@ -52,8 +52,8 @@ function loginRequiredMiddleware(req: Request, res: Response, next: any, onlyFor
         return res.redirect("/auth/login");
     }
 
-    if (onlyFor && req.userType !== onlyFor) {
-        return res.redirect("/auth/login-customer");
+    if (onlyFor !== undefined && req.userType !== onlyFor) {
+        return res.redirect("/auth/login/employee");
     }
 
     return next();
