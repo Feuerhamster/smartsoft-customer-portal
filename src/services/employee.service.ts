@@ -51,6 +51,8 @@ export class EmployeeService {
      * @param id
      */
     public async delete(id: string): Promise<boolean> {
+        await this.database.deleteMessages({ employeeId: id });
+        
         let employee: Employee = await this.database.deleteEmployee(id);
         return !!employee;
     }

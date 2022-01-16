@@ -1,6 +1,14 @@
 mixin error-mixin
     case error
         when "validation"
-            p.error Fehlerhafte Eingabe
+            p.error Fehlerhafte Eingabe!
         when "authentication"
-            p.error Ungültiger Login
+            p.error Ungültiger Login!
+        when "employee_delete_exception"
+            p.error
+                | Mitarbeiter konnte nicht gelöscht werden!
+                br
+                | Möglicherweise ist er noch als Kontakt für einen Kunden hinterlegt.
+        when "customer_delete_exception"
+            p.error
+                | Kunde konnte nicht gelöscht werden!

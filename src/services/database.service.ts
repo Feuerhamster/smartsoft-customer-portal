@@ -193,4 +193,21 @@ export default class DatabaseService {
             }
         });
     }
+    
+    /**
+     * Delete messages by a where query
+     * @param where
+     * @returns {Promise<number>} Number of deleted messages
+     */
+    public async deleteMessages(where: object): Promise<number> {
+        try {
+            let { count } = await this.db.message.deleteMany({
+                where
+            });
+            
+            return count;
+        } catch (e) {
+            return null;
+        }
+    }
 }
