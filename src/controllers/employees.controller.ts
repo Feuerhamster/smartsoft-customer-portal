@@ -1,4 +1,4 @@
-import {ClassMiddleware, Controller, Get, Post} from "@overnightjs/core";
+import {ClassMiddleware, Controller, Get, Middleware, Post} from "@overnightjs/core";
 import {Service} from "typedi";
 import {Request, Response} from "express";
 import {loginRequired} from "../middlewares/authentication.middleware";
@@ -6,6 +6,9 @@ import {EmployeeService} from "../services/employee.service";
 import {Employee} from "@prisma/client";
 import {DTOAddEmployee} from "../models/dto/employee";
 import {EUserType} from "../models/auth";
+import {validator} from "../middlewares/validation.middleware";
+import {DTOAddCustomer} from "../models/dto/customer";
+import escapeHTMLMiddleware from "../middlewares/escape.middleware";
 
 @Service()
 @Controller("employees")
@@ -26,6 +29,7 @@ export class EmployeeController {
     }
 
     @Post("add")
+    @Middleware([escapeHTMLMiddleware, validator(DTOAddEmployee)])
     public async executeCreateEmployee(req: Request<{}, {}, DTOAddEmployee>, res: Response) {
         await this.employeeService.add(req.body);
         res.redirect("/employees");

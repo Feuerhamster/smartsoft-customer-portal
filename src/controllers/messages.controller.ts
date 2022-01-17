@@ -10,6 +10,7 @@ import {DTOMessage} from "../models/dto/message";
 import {CustomerService} from "../services/customer.service";
 import {CustomerWithContact, MessageWithCustomerAndEmployee, EmployeeWithCustomers} from "../models/database";
 import {EmployeeService} from "../services/employee.service";
+import escapeHTMLMiddleware from "../middlewares/escape.middleware";
 
 @Service()
 @Controller("messages")
@@ -47,8 +48,8 @@ export class MessagesController {
     }
 
     @Post("send")
-    @Middleware(validator(DTOMessage))
-    async executeSendMessage(req: Request, res: Response) {
+    @Middleware([escapeHTMLMiddleware, validator(DTOMessage)])
+    async executeSendMessage(req: Request<{}, {}, DTOMessage>, res: Response) {
 
         let messageCustomerId: string;
         let messageEmployeeId: string;

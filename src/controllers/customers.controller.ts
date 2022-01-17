@@ -9,6 +9,7 @@ import {DTOAddCustomer} from "../models/dto/customer";
 import {EmployeeService} from "../services/employee.service";
 import {EUserType} from "../models/auth";
 import {CustomerWithContact} from "../models/database";
+import escapeHTMLMiddleware from "../middlewares/escape.middleware";
 
 @Service()
 @Controller("customers")
@@ -35,7 +36,7 @@ export class CustomerController {
 
 
     @Post("add")
-    @Middleware([validator(DTOAddCustomer)])
+    @Middleware([escapeHTMLMiddleware, validator(DTOAddCustomer)])
     public async executeCreateCustomer(req: Request<{}, {}, DTOAddCustomer>, res: Response) {
         if (req.validationErrors.length > 1) return res.render("customers", { error: "validation" })
 
