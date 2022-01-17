@@ -6,7 +6,7 @@ So you don't have to install the project yourself, here is a hosted demo:
 https://smartsoft-customer-portal.hamsterlabs.de/
 
 **E-Mail:** admin@host.local  
-**Password:** 989d3e
+**Password:** 40c279
 
 ## 📦 TechStack
 - Typescript
