@@ -9,7 +9,7 @@ import {EUserType} from "../models/auth";
 
 @Service()
 @Controller("employees")
-@ClassMiddleware([loginRequired(EUserType.Employee)])
+@ClassMiddleware(loginRequired(EUserType.Employee))
 export class EmployeeController {
     constructor(private readonly employeeService: EmployeeService) {}
 
@@ -39,7 +39,7 @@ export class EmployeeController {
             res.redirect("/employees");
         } else {
             let employees: Employee[] = await this.employeeService.getAll();
-            res.render("employees", { employees, error: "Could not delete employee" });
+            res.render("employees", { employees, error: "employee_delete_exception" });
         }
     }
 }

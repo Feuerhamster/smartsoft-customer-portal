@@ -290,6 +290,7 @@ button.small, .button.small {
     color: var(--color-red);
     font-weight: bold;
     margin-top: 0;
+    text-align: center;
 }
 
 /**
@@ -331,7 +332,7 @@ td.actions .lucide {
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: var(--color-background-accent);
     border-radius: 2px;
     transition: 0.2s all;
     width: 400px;
@@ -394,8 +395,23 @@ body.dark {
     border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
+.dark form select {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.dark form select option {
+    color: var(--color-text);
+    background-color: var(--color-background-accent-hover)
+}
+
 .dark form input:hover,
 .dark form select:hover,
 .dark form textarea:hover {
     border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.dark table tr:nth-child(even){background-color: var(--color-background-accent);}
+
+.dark .message > .message-header > .date {
+    color: rgba(255, 255, 255, 0.3);
 }

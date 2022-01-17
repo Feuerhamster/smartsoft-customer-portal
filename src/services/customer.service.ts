@@ -44,6 +44,8 @@ export class CustomerService {
      * @param id If of the customer to delete
      */
     public async delete(id: string): Promise<boolean> {
+        await this.database.deleteMessages({ customerId: id })
+        
         let customer: Customer =  await this.database.deleteCustomer(id);
         return !!customer;
     }

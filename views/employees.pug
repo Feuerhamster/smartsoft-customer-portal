@@ -1,7 +1,11 @@
 extends _layout
 
+include mixins/error
+
 block page
     h1 Mitarbeiterverwaltung
+
+    +error-mixin
 
     a.block.button(href="/employees/add")
         i(icon-name="user-plus")

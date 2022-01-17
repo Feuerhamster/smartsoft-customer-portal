@@ -37,7 +37,7 @@ export class CustomerController {
     @Post("add")
     @Middleware([validator(DTOAddCustomer)])
     public async executeCreateCustomer(req: Request<{}, {}, DTOAddCustomer>, res: Response) {
-        if (req.validationErrors.length > 1) return res.render("customers", { error: "Invalid post data" })
+        if (req.validationErrors.length > 1) return res.render("customers", { error: "validation" })
 
         await this.customerService.add(req.body);
 
@@ -53,7 +53,7 @@ export class CustomerController {
         } else {
             let customers: CustomerWithContact[] = await this.customerService.getAll();
             let employees: Employee[] = await this.employeeService.getAll();
-            res.render("customers", { customers, employees, error: "Could not delete customer" });
+            res.render("customers", { customers, employees, error: "customer_delete_exception" });
         }
     }
 }
