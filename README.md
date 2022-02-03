@@ -8,6 +8,8 @@ https://smartsoft-customer-portal.hamsterlabs.de/
 **E-Mail:** admin@host.local  
 **Password:** 40c279
 
+> ⚠ The demo is now offline because my teacher has finished grading the project
+
 ## 📦 TechStack
 - Typescript
 - Express.js
